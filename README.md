@@ -1,7 +1,33 @@
-# Debug Docker Python app
+# Debug Docker Python app with VS Code
 
-To debug the application:
+## Local VS Code setup
 
+Create `.vscode/launch.json`
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Remote Attach",
+        "type": "python",
+        "request": "attach",
+        "connect": {
+          "host": "localhost",
+          "port": 5678
+        },
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/app"
+          }
+        ]
+      }
+    ]
+  }
+```
+
+## To debug the application
 
 * Start the container in development mode with `make dev`.
 
